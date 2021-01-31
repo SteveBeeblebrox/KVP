@@ -1,0 +1,23 @@
+!This is a comment
+key:value
+!Keys and values can have spaces in them
+some key: some value
+a true boolean: true
+a false boolean: false
+an integer: 142
+a double: 6.02
+a string without leading whitespace: hello
+a string with leading whitespace: ' hello'
+another string with leading whitespace: " hello"
+this value would include the quotes: ' hello"
+this value would also include the quotes: " hello"a
+a date: 1/17/2020
+comments can follow a value: hi !This is a comment
+
+!Empty lines are fine
+a key: value
+a key: this overwrites the above line
+A KEY: this line would not overwrite the last one
+This line is invalid and will raise a warning (however the rest of the parsing will still work)
+when getting a value as anything other than a string, the value is still trimmed before parsing: ' true'
+!As seen above, keys can even contain non alphanumeric characters
