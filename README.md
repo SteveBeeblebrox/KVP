@@ -1,3 +1,4 @@
+![KVP Icon](assets/kvp.png "KVP Icon")
 # KVP
 A simple key value pair data format
 ## Format
@@ -15,3 +16,6 @@ A simple key value pair data format
   + Characters in keys and values can be escaped; however, not all occurrences of special characters need to be escaped
     + Any `:` in the value do not need to be escaped
     + Quotes in the key do not need to be escaped
+## Miscellaneous
+### Images
+There are several images inside of the `assets` folder that can be used for file icons or other references to KVP parsing or support within a program.
