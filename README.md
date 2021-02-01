@@ -1,6 +1,10 @@
 ![KVP Icon](assets/kvp.png "KVP Icon")
 # KVP
 A simple key value pair data format
+## Implementations
++ JavaScript
+  + Normal
+  + Module
 ## Format
 + Single Line Comments
   + Anything following a `!` is ignored
