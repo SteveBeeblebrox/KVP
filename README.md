@@ -9,3 +9,9 @@ A simple key value pair data format
   + Whitespace is trimmed from values so `key: value` and `key:value` both have a value of just `value`
   + To keep leading or trailing whitepace, wrap the value in single or double quotes (`key:" value "` or `key:' value '`)
 + Escaping Characters
+  + The following characters may be escaped when needed: `$`, `!`, `:`, `"`, `'`, and `\n`
+  + For `$`, `!`, `:`, `"`, or `'`, simply type a `$` before the character to be escaped
+  + To escape a newline (`\n`), use `$endline` instead
+  + Characters in keys and values can be escaped; however, not all occurrences of special characters need to be escaped
+    + Any `:` in the value do not need to be escaped
+    + Quotes in the key do not need to be escaped
