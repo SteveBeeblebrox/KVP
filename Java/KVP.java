@@ -39,8 +39,15 @@ public class KVP {
 		return this.pairs.get(key);
 	}
 	private <T> T internalGetHelper(Transformer transformer, Validator validator, String key, T fallback) {
-		//TODO ...
-		return null;
+		if(this.hasKey(key)) {
+			String value = this.internalGet(key);
+			if(value != null) {
+				T transformed = (T)transformer.accept(value);
+				if(validator.accept(transformed, value)) 
+					return transformed;
+			}
+		}
+		return fallback;
 	}
 	public KVP(String source) {
 		//TODO ...
