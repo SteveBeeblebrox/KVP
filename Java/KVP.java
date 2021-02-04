@@ -23,6 +23,15 @@ SOFTWARE.
 */
 
 public class KVP {
+	private static class ReplacementGroups {
+		private java.util.regex.Matcher matcher;
+		private ReplacementGroups(java.util.regex.Matcher matcher) {
+			this.matcher = matcher;
+		}
+		private String group(int group) {
+			return matcher.group(group);
+		}
+	}
 	@FunctionalInterface
 	private interface Transformer<T> {
 		public <T> T accept(String value);
