@@ -33,10 +33,6 @@ public class KVP {
 		}
 	}
 	@FunctionalInterface
-	private interface Transformer<T> {
-		public <T> T accept(String value);
-	}
-	@FunctionalInterface
 	private interface Validator<T> {
 		public <T> boolean accept(T transformed, String value);
 	}
@@ -47,11 +43,11 @@ public class KVP {
 	private String internalGet(String key) {
 		return this.pairs.get(key);
 	}
-	private <T> T internalGetHelper(Transformer transformer, Validator validator, String key, T fallback) {
+	private <T> T internalGetHelper(java.util.function.Function<String, T> transformer, Validator validator, String key, T fallback) {
 		if(this.hasKey(key)) {
 			String value = this.internalGet(key);
 			if(value != null) {
-				T transformed = (T)transformer.accept(value);
+				T transformed = (T)transformer.apply(value);
 				if(validator.accept(transformed, value)) 
 					return transformed;
 			}
