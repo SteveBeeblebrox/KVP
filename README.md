@@ -2,10 +2,10 @@
 # KVP
 A simple key value pair data format
 ## Implementations
-+ JavaScript
++ [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/JavaScript)
   + Normal
   + Module
-+ Java 8+
++ [Java 8+](https://github.com/SteveBeeblebrox/KVP/tree/master/Java)
 ## Format
 + Single Line Comments
   + Anything following a `!` is ignored
