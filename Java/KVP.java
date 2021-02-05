@@ -50,6 +50,14 @@ public class KVP {
 		}
 		return fallback;
 	}
+	private static String internalSmartReplaceAll(String text, String pattern, java.util.function.Function<ReplacementGroups, String> replacer) {
+		java.util.regex.Matcher matcher = java.util.regex.Pattern.compile(pattern).matcher(text);
+		StringBuffer result = new StringBuffer();
+		while(matcher.find())
+			matcher.appendReplacement(result, replacer.apply(new ReplacementGroups(matcher)));
+		matcher.appendTail(result);
+		return result.toString();
+	}
 	public KVP(String source) {
 		//TODO ...
 	}
