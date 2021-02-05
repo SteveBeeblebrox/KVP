@@ -5,6 +5,7 @@ A simple key value pair data format
 + JavaScript
   + Normal
   + Module
++ Java 8+
 ## Format
 + Single Line Comments
   + Anything following a `!` is ignored
