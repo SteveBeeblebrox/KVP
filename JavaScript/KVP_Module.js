@@ -42,7 +42,6 @@ export default class KVP {
     constructor(source) {
         let unexpectedTokens = [];
         let add = this.#internalAdd.bind(this);
-        
         source.split(/\n/g).forEach((line, index) => 
             line
                 .replace(/^$\n/g, '')
@@ -54,7 +53,6 @@ export default class KVP {
                     unexpectedTokens.push([match1, index])
                 )
         );
-
         for(let [token, line] of unexpectedTokens)
             console.warn(`Unexpected token "${token}" in Key Value Pair on line ${line}`);
     }
