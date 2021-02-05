@@ -23,15 +23,6 @@ SOFTWARE.
 */
 
 public class KVP {
-	private static class ReplacementGroups {
-		private java.util.regex.Matcher matcher;
-		private ReplacementGroups(java.util.regex.Matcher matcher) {
-			this.matcher = matcher;
-		}
-		private String group(int group) {
-			return matcher.group(group);
-		}
-	}
 	private java.util.LinkedHashMap<String, String> pairs = new java.util.LinkedHashMap<String, String>();
 	private void internalAdd(String key, String value) {
 		this.pairs.put(key, value);
@@ -50,11 +41,11 @@ public class KVP {
 		}
 		return fallback;
 	}
-	private static String internalSmartReplaceAll(String text, String pattern, java.util.function.Function<ReplacementGroups, String> replacer) {
+	private static String internalSmartReplaceAll(String text, String pattern, java.util.function.Function<java.util.regex.MatchResult, String> replacer) {
 		java.util.regex.Matcher matcher = java.util.regex.Pattern.compile(pattern).matcher(text);
 		StringBuffer result = new StringBuffer();
 		while(matcher.find())
-			matcher.appendReplacement(result, replacer.apply(new ReplacementGroups(matcher)));
+			matcher.appendReplacement(result, replacer.apply(matcher.toMatchResult()));
 		matcher.appendTail(result);
 		return result.toString();
 	}
