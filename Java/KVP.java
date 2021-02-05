@@ -23,6 +23,7 @@ SOFTWARE.
 */
 
 public class KVP {
+	private final static java.util.logging.Logger LOGGER =  java.util.logging.Logger.getLogger("KVP"); 
 	private java.util.LinkedHashMap<String, String> pairs = new java.util.LinkedHashMap<String, String>();
 	private void internalAdd(String key, String value) {
 		this.pairs.put(key, value);
@@ -50,7 +51,33 @@ public class KVP {
 		return result.toString();
 	}
 	public KVP(String source) {
-		//TODO ...
+		java.util.ArrayList<javafx.util.Pair<String, Integer>> unexpectedTokens = new java.util.ArrayList<javafx.util.Pair<String, Integer>>();
+		String[] lines = source.split("\n");
+		for(int i = 0; i < lines.length; i++) {
+			final int l = i;
+			String line = lines[i]
+				.replaceAll("^$\n", "")
+				.replaceAll("(?<!\\$)!.*$", "");
+			line = 
+				internalSmartReplaceAll(line, "^\\s*?(.*?)(?<!\\$):\\s*?(?<!\\$)(['\"])(.*?)(?<!\\$)\\2\\s*$", matches -> {
+					this.internalAdd(KVP.unescape(matches.group(1)), KVP.unescape(matches.group(3)));
+					return "";
+				});
+			line = 
+				internalSmartReplaceAll(line, "^\\s*?(.*?)(?<!\\$):(.*?)$", matches -> {
+					this.internalAdd(KVP.unescape(matches.group(1)), KVP.unescape(matches.group(2).trim()));
+					return "";
+				});
+			line = line
+				.replaceAll("^$\n", "");
+			line =
+				internalSmartReplaceAll(line, "(.+)", matches -> {
+					unexpectedTokens.add(new javafx.util.Pair(matches.group(1), l));
+					return "";
+				});
+		}
+		for(javafx.util.Pair<String, Integer> pair : unexpectedTokens)
+			LOGGER.log(java.util.logging.Level.WARNING, String.format("Unexpected token \"%s\" in Key Value Pair on line %s", pair.getKey(), pair.getValue()));
 	}
 	public static KVP parse(String source) {
 		return new KVP(source);
