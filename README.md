@@ -4,15 +4,15 @@ A simple key value pair data format
 ## Implementations
 The standard implementation is avalible in several different languages and should work identically.
 Supported Languages:
-+ [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/JavaScript)
++ [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/Standard/javascript)
   + Normal
   + Module
-+ [Java 8+](https://github.com/SteveBeeblebrox/KVP/tree/master/Java)
++ [Java 8+](https://github.com/SteveBeeblebrox/KVP/tree/master/Standard/java)
 ## Extensions
 Extension do not follow a standard and may work differnetly or only be avalible in some languages.
 ### JavaScript Object Builder
 Supported Languages:
-+ [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/JavaScript/extensions)
++ [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/Extensions/javascript)
   + Normal
   + Module
 ## Format
