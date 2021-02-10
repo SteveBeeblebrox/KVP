@@ -2,10 +2,19 @@
 # KVP
 A simple key value pair data format
 ## Implementations
+The standard implementation is avalible in several different languages and should work identically.
+Supported Languages:
 + [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/JavaScript)
   + Normal
   + Module
 + [Java 8+](https://github.com/SteveBeeblebrox/KVP/tree/master/Java)
+## Extensions
+Extension do not follow a standard and may work differnetly or only be avalible in some languages.
+### JavaScript Object Builder
+Supported Languages:
++ [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/JavaScript/extensions)
+  + Normal
+  + Module
 ## Format
 + Single Line Comments
   + Anything following a `!` is ignored
