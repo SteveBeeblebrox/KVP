@@ -14,7 +14,31 @@ Extension do not follow a standard and may work differnetly or only be avalible 
 Supported Languages:
 + [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/Extensions/javascript)
   + Normal
-  + Module
+  + Module  
+  
+This extension adds support for quickly building ojects from a template and a KVP object or string. It adds the class `KVPObjectBuilder` which supports all the static and instance methods of the standard KVP class in addition to the new `build` function.  
+There are three different ways to use the `build` function:
+  ```javascript
+  KVPObjectBuilder.build(srcString, pattern)
+  ```
+
+  ```javascript
+  new KVPObjectBuilder(srcString).build(pattern)
+  ```
+
+  ```javascript
+  KVPObjectBuilder.parse(srcString).build(pattern)
+  ```
+A pattern object is just a JavaScript object where the keys should match the desired KVP keys and the values are a function telling the builder what data type to convert the values into:
+```javascript
+let {getString, getBoolean, getInteger, getDecimal, getDate} = KVPObjectBuilder;
+let pattern = {
+    name: getString(),
+    age: getInteger(),
+    birthday: getDate(),
+    'is admin': getBoolean()
+}
+```
 ## Format
 + Single Line Comments
   + Anything following a `!` is ignored
