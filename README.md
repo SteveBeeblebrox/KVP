@@ -2,7 +2,7 @@
 # KVP
 A simple key value pair data format
 ## Implementations
-The standard implementation is avalible in several different languages and should work identically.
+The standard implementation is avalible in several different languages and should work identically.  
 Supported Languages:
 + [JavaScript](https://github.com/SteveBeeblebrox/KVP/tree/master/Standard/javascript)
   + Normal
@@ -16,7 +16,7 @@ Supported Languages:
   + Normal
   + Module  
   
-This extension adds support for quickly building ojects from a template and a KVP object or string. It adds the class `KVPObjectBuilder` which supports all the static and instance methods of the standard KVP class in addition to the new `build` function.  
+This extension adds support for quickly building ojects from a pattern and a KVP object or string. It adds the class `KVPObjectBuilder` which supports all the static and instance methods of the standard KVP class in addition to the new `build` function. The pattern controls the structure of the resulting object as well as what format the values are in.  
 There are three different ways to use the `build` function:
   ```javascript
   KVPObjectBuilder.build(srcString, pattern)
