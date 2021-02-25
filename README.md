@@ -1,5 +1,5 @@
 ![KVP Icon](assets/kvp.png "KVP Icon")
-# KVP
+# KVP ![GitHub](https://img.shields.io/github/license/SteveBeeblebrox/KVP?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/SteveBeeblebrox/KVP?style=flat-square) ![GitHub issues](https://img.shields.io/github/issues-raw/SteveBeeblebrox/KVP?style=flat-square) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SteveBeeblebrox/KVP?style=flat-square) ![GitHub contributors](https://img.shields.io/github/contributors/SteveBeeblebrox/KVP?color=007EC6&style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/SteveBeeblebrox/KVP?style=flat-square)
 A simple key value pair data format
 ## Implementations
 The standard implementation is avalible in several different languages and should work identically.  
